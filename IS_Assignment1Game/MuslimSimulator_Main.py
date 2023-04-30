@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 
 root = Tk()
-root.geometry("460x550")
+root.geometry("460x600")
 root.title("Muslim Simulator")
 
 point = 0 # Player's final score
@@ -38,7 +38,7 @@ def intro():
 def morning():
     temp = 0
 
-    morningGreet = Label(morningScene, text="\nThis is just another normal day for a Muslim. To start the day you decided to wakeup: ")
+    morningGreet = Label(morningScene, text="\nThis is just another normal day for a Muslim. To start the day you decided to wakeup: \n")
     early = Button(morningScene, text="Early", padx=20, pady=10, command=lambda: goEarly(temp))
     onTime = Button(morningScene, text="On Time", padx=20, pady=10, command=lambda: goOnTime(temp))
     late = Button(morningScene, text="Late", padx=20, pady=10, command=lambda: goLate())
@@ -51,7 +51,7 @@ def morning():
 def goEarly(temp):
     global hn
     earlyGreet = Label(morningScene ,text="\n\n[4:30 AM]\nGreat! You decided to wake up early.\nDo you want to "
-                  + "perform tahajjud prayer ? or do you want to go back to sleep ?")
+                  + "perform tahajjud prayer ? or do you want to go back to sleep ?\n")
     tahajjud = Button(morningScene, text="Tahajjud", padx=20, pady=10, command=lambda: goTahajjud(temp))
     sleep = Button(morningScene, text="Sleep", padx=20, pady=10, command=lambda: goOnTime(temp))
 
@@ -72,11 +72,11 @@ def goOnTime(temp):
     global hn
     if temp == 0:
         onTimeGreet = Label(morningScene, text="\n\n[6:00 AM]\nGood! You decided to wake up on time. \nDo you want to perform Subuh" +
-                  " prayer ? or do you want to go back to sleep ?")
+                  " prayer ? or do you want to go back to sleep ?\n")
     
     else:
         onTimeGreet = Label(morningScene, text="\n\n[6:00 AM]\nGood! Do you want to perform Subuh" +
-                  " prayer ?\nor do you want to go back to sleep ?")
+                  " prayer ?\nor do you want to go back to sleep ?\n")
     
     subuh = Button(morningScene, text="Subuh", padx=20, pady=10, command=lambda: goAfternoon())
     sleep = Button(morningScene, text="Sleep", padx=20, pady=10, command=lambda: goSleep())
@@ -96,7 +96,7 @@ def goLate():
     global hn
     global gn
     lateGreet = Label(morningScene, text="\n\n[7:30 AM]\nAstaghfirullahalazim... You woke up late and did not perform Subuh prayer." +
-          "\nDo you want to peform Qada' prayer ?")
+          "\nDo you want to peform Qada' prayer ?\n")
     yesQada = Button(morningScene, text="Yes", padx=20, pady=10, command=lambda: goQada(1))
     noQada = Button(morningScene, text="No", padx=20, pady=10, command=lambda: goQada(2))
 
@@ -123,10 +123,10 @@ def goQada(qada):
 def goAfternoon():
     global hn 
     morningScene.destroy()
-    afternoonGreet = Label(afternoonScene, text="\n\n[12:00 PM]\nYou walk into the office and see your co-workers gossiping about the boss." +
-                           "\nWhat are you going to do?")
+    afternoonGreet = Label(afternoonScene, text="\n[12:00 PM]\nYou walk into the office and see your co-workers gossiping about the boss." +
+                           "\nWhat are you going to do?\n")
     yesRant = Button(afternoonScene, text = "Join", padx=20, pady=10, command=lambda: goRant(1))
-    noRant = Button(afternoonScene, text = "Walk\nAway", padx=20, pady=12, command=lambda: goRant(2))
+    noRant = Button(afternoonScene, text = "Walk\nAway", padx=20, pady=3, command=lambda: goRant(2))
     
     afternoonGreet.grid(columnspan=3, row=10)
     yesRant.grid(column=0, columnspan=2, row=11)
@@ -151,7 +151,7 @@ def goAzan():
     global hn 
     azanGreet = Label(afternoonScene, text="\n\n[1:12 PM]\nYou were in the middle of presentating your monthly report to your boss." +
                       "\nThen you heard the Zuhr call of prayer (Adzan)." +
-                      "\nDo you want to continue with the presentation or respect the call of prayer?")
+                      "\nDo you want to continue with the presentation or respect the call of prayer?\n")
     noRespect = Button(afternoonScene, text="Continue\nMeeting", padx=20, pady=10, command=lambda: goRespect())
     respect = Button(afternoonScene, text="Respect\nAdzan", padx=20, pady=10, command=lambda: goRespect())
 
@@ -173,7 +173,7 @@ def goNight():
     global hn
     afternoonScene.destroy()
     nightGreet = Label(nightScene, text="\n\n[7:00 PM]\nIt is the end of the day, you are tired but still have obligations as a Muslim." +
-                       "\nFor Maghrib, will you be going to the mosque?")
+                       "\nFor Maghrib, will you be going to the mosque?\n")
     prayMosque = Button(nightScene, text="Pray at\nMosque", padx=20, pady=10, command=lambda: goMosque(1))
     prayHome = Button(nightScene, text="Pray at\nHome", padx=20, pady=10, command=lambda: goMosque(2))
 
@@ -196,8 +196,8 @@ def goMosque(mosque):
 
 def stayMosque():
     global hn
-    mosqueGreet = Label(nightScene, text="\n\n[8:00 PM]\nIt is not long until Isya'\nWill you go back home or stay to pray?")
-    stayMosque = Button(nightScene, text="Stay at\nMosque", padx=20, pady=10, command=lambda: goIsya(1))
+    mosqueGreet = Label(nightScene, text="\n\n[8:00 PM]\nIt is not long until Isya'\nWill you go back home or stay to pray?\n")
+    stayMosque = Button(nightScene, text="Stay at\nMosque", padx=20, pady=3, command=lambda: goIsya(1))
     goHome = Button(nightScene, text="Go Home", padx=20, pady=10, command=lambda: goIsya(2))
 
     mosqueGreet.grid(columnspan=3, row=18)
@@ -225,11 +225,11 @@ def endScene():
     fn = gn + hn # final path cost
     
     if point >= 0:
-        endGreet = Label(nightScene, text="\n\nYou have ended your day!\nTotal marks is: " + str(point) +
+        endGreet = Label(nightScene, text="\n\nYou have ended your day!\nTotal point(s) is: " + str(point) +
                          "\nYou are on the right path towards Rahmatan Lil Alamin!\n")
 
     else:
-        endGreet = Label(nightScene, text="\n\nYou have ended your day!\nTotal marks is: " + str(point) +
+        endGreet = Label(nightScene, text="\n\nYou have ended your day!\nTotal point(s) is: " + str(point) +
                          "\nAllah SWT still loves you, return to the right path\n")
 
     endGreet.grid(columnspan=3, row=20)

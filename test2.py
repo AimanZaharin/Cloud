@@ -34,6 +34,7 @@ def printArray(coins):
 		print(i);
 
 if __name__ == '__main__':
+
 	Coins = [6, 5, 1];
 
 	print("The Coins Array:");
@@ -43,3 +44,8 @@ if __name__ == '__main__':
 	print(getNumberOfWays(9, Coins));
 
 # This code is contributed by 29AjayKumar
+
+#test
+
+#test2
+

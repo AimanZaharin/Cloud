@@ -7,7 +7,6 @@ root.geometry("500x1080")
 root.title("Muslim Simulator")
 point = 0
 
-
 def intro():
     global point
     point = 0

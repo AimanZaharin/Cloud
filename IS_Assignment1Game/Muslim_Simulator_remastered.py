@@ -40,7 +40,6 @@ def goEarly(temp):
     tahajjud.grid(column=0, columnspan=2, row=5)
     sleep.grid(column=1, columnspan=2, row=5)
 
-
 def goTahajjud(temp):
     global point
     point += 1

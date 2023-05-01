@@ -3,7 +3,7 @@ from tkinter import ttk
 
 root = Tk()
 root.geometry("460x600")
-root.title("Muslim Simulator")
+root.title("Muslim Simulator - A text based adventure game")
 
 point = 0 # Player's final score
 
@@ -226,13 +226,20 @@ def endScene():
     
     if point >= 0:
         endGreet = Label(nightScene, text="\n\nYou have ended your day!\nTotal point(s) is: " + str(point) +
-                         "\nYou are on the right path towards Rahmatan Lil Alamin!\n")
+                         "\nYou are on the right path towards Rahmatan Lil Alamin!\n" + "\ng(n) = " + str(gn) + "\n" + "h(n) = " + str(hn) + "\n" +  "f(n) = " + str(fn))
 
     else:
         endGreet = Label(nightScene, text="\n\nYou have ended your day!\nTotal point(s) is: " + str(point) +
-                         "\nAllah SWT still loves you, return to the right path\n")
+                         "\nAllah SWT still loves you. InsyaAllah, you will return to the right path\n" + "\ng(n) = " + str(gn) + "\n" + "h(n) = " + str(hn) + "\n" +  "f(n) = " + str(fn))
+        
+    if fn == 5:
+        conclusion = Label(nightScene, text="\nCongratulations! You have chosen the most optimal path.")
+    
+    else:
+        conclusion = Label(nightScene, text="\nYou could have chosen a more optimal path.")
 
     endGreet.grid(columnspan=3, row=20)
+    conclusion.grid(columnspan=3, row = 25)
 
 intro()
 morning()

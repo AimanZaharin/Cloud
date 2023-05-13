@@ -36,3 +36,7 @@ plt.xlabel('k')
 plt.ylabel(plt.legend())
 plt.grid()
 plt.show()
+
+# X X X
+# X X X
+# X 1 1

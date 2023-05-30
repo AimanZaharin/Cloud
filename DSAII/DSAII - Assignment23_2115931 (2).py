@@ -1,16 +1,18 @@
+# Q2) Modify your code in no.1 to write a 
+# code for Fibonacci (iterative DP) - make a branch
+
 def fibonacci(n):
 
-    if n == 0:
-        return 0
-    
-    if n == 1:
-        return 1
-    
-    return fibonacci(n-1) + fibonacci(n-2)
+    temp = [0, 1]
+
+    for i in range(2, n+1):
+        temp.append(temp[i-1] + temp[i-2])
+
+    return temp[n]
 
 def main():
     
-    n = 9
+    n = 6
 
     print(fibonacci(n))
 

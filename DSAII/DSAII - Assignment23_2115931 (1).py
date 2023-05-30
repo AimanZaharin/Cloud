@@ -1,3 +1,6 @@
+# Q1) Write a code for finding nth Fibonacci number 
+# (recursion without dynamic programming (DP))
+
 def fibonacci(n):
 
     if n == 0:
@@ -10,7 +13,7 @@ def fibonacci(n):
 
 def main():
     
-    n = 100
+    n = 6
 
     print(fibonacci(n))
 

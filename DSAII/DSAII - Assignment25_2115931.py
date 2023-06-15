@@ -13,7 +13,6 @@ class Graph():
     
     def minKey(self, key, mstSet):
  
-        # Initialize min value
         min = sys.maxsize
  
         for v in range(self.V):
